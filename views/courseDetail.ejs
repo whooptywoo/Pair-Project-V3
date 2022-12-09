@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLingo</title>
+</head>
+<body>
+    <h1>EduLingo <%= course.name %> Course</h1>
+    <h2>Instructor: <%= course.Instructor.name %></h2>
+    <h2>Schedule:</h2>
+    <% course.splitSchedule(course.schedule, ';').map(el => {%>
+        <%= el  %><br>
+    <% }) %>
+    <p><%= course.description %></p>
+    <% let enrolled = false %>
+    <% if (student !== null) { %>
+        <% student.Courses.map(el => { %>
+            <% if (el.id === course.id) { %>
+                <% enrolled = true %>
+            <% } %>
+        <% }) %>
+        <% if (enrolled === true) { %>
+            <% if (status.length > 0) { %>
+                <p><%= status %></p>
+            <% } else { %>
+                <p>Enrolled</p>
+            <% } %>
+        <% } else { %>
+            <a href="/<%= student.id %>/<%= course.id %>/enroll">Enroll</a>
+        <% } %>    
+    <% } else { %>
+        <a href="/login">Enroll</a>
+    <% } %>
+</body>
+</html>

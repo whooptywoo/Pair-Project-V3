@@ -1,0 +1,31 @@
+{
+  "name": "pair-project-p1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whooptywoo/Pair-Project-P1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whooptywoo/Pair-Project-P1/issues"
+  },
+  "homepage": "https://github.com/whooptywoo/Pair-Project-P1#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "pg": "^8.8.0",
+    "sequelize": "^6.26.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.5.2"
+  }
+}

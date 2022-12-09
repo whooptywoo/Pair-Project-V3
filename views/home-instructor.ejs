@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLingo</title>
+</head>
+<body>
+    <h1>Hello, <%= user.name %>!</h1>
+    <h1><%= user.Course.name %> Class's Student List</h1>
+    <form action="<%= user.id %>">
+        <input type="text" placeholder="Search by name" name="search">
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% filteredStudents.map(student => { %>
+                <tr>
+                    <td><%= student.id %></td>
+                    <td><%= student.name %></td>
+                    <td><%= student.getBirthday(student.dob) %></td>
+                    <% student.Courses.forEach(el => { %>
+                        <% if(el.id === user.Course.id){ %>
+                            <% if(!el.Enrollment.isDone) { %>
+                                <td><a href="/<%= user.id %>/<%= user.Course.id %>/<%= student.id %>/markDone">Mark as Finished</a></td>
+                            <% } else { %>
+                                <td>Finished</td>
+                            <% } %>
+                        <% } %> 
+                    <% }) %> 
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

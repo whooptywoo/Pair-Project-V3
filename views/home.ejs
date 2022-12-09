@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLingo</title>
+</head>
+<body>
+    <a href="/login">Login</a>
+    <a href="/register">Sign Up</a>
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let index = 0 %>
+            <% courses.map(el => { %>
+                <tr>
+                    <td><%= ++index %></td>
+                    <td><%= el.name %></td>
+                    <td><a href="<%= el.id %>/courseDetail">Detail</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/logout">Log Out</a>
+</body>
+</html>
